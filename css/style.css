@@ -1,0 +1,40 @@
+/*************************FONTS*************************/
+
+@font-face {
+    font-display: swap; 
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/space-grotesk-v16-latin-500.woff2') format('woff2'); 
+  }
+ 
+  @font-face {
+    font-display: swap; 
+    font-family: 'Space Grotesk';
+    font-style: bold;
+    font-weight: 700;
+    src: url('../fonts/space-grotesk-v16-latin-700.woff2') format('woff2'); 
+  }
+
+/*************************GENERALS*************************/
+
+:root{
+    --black: #151515;
+    --green: #4EE1A0;
+    --dark-grey: #242424;
+    --grey: #D9D9D9;
+    --white: #FFF;
+
+    --font: "Space Grotesk", sans-serif;
+
+}
+
+body{
+    font-family: var(--font);
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--grey);
+    background-color: var(--black);
+}
