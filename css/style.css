@@ -38,3 +38,65 @@ body{
     color: var(--grey);
     background-color: var(--black);
 }
+
+.skill-title{
+  display:none;
+}
+
+/*************************LAYOUT*************************/
+
+.container{
+  width : min(100%,90rem);
+  margin-inline : auto;
+  padding-inline:1rem;
+}
+
+.header .container{
+  background-color: red;
+  display : grid;
+  grid-gap : 1rem;
+}
+
+.shared-links{
+  display : flex;
+  flex-direction: row;
+}
+
+.socials img{
+  padding-right : 1rem;
+}
+
+/*espace entre mes boutons de 32px soit 2rem soit un padding r et l de 1rem
+
+/*cours du prof*/
+@media screen and (min-width: 36em) { /* eq 576px */
+  .container {
+      max-width: 48rem;
+      padding-inline:auto;
+  }
+
+  .header .container{
+    background-color: blueviolet;
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap : 1rem;
+    justify-content:space-between;
+  }
+
+  .shared-links{
+    justify-content: right;
+  }
+}
+
+@media screen and (min-width: 67.5em){
+  .container {
+      max-width: 71.25rem; 
+      padding-inline:auto;
+  }
+}
+
+/************ IDENTITY LAYOUT *****************/
+
+.identity{
+  flex-direction: row-reverse;
+}
