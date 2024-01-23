@@ -26,7 +26,6 @@
     --white: #FFF;
 
     --font: "Space Grotesk", sans-serif;
-
 }
 
 body{
@@ -44,15 +43,36 @@ body{
 }
 
 /*************************LAYOUT*************************/
-/******Header******/
+
+/*Classical break-point : 0 > 576 > 768 > 992 > 1200 > 1400
+Convert to em             0 > 36  > 48  > 62  > 1200 > 87.5
+I define 2 break-points : Mobile > 48rem  > tablette 
+                                 > 71rem  > Deskstop */                              
+
+
 .container{
   width : min(100%,90rem);
   margin-inline : auto;
-  padding-inline:1rem;
+  padding-inline: auto;
 }
+
+@media screen and (min-width: 48em) {
+  .container {
+    max-width: 48rem;
+  }
+}
+
+@media screen and (min-width: 62em) {
+  .container {
+    max-width: 71 rem;
+  }
+}
+
+/******Header******/
 
 .header .container{
   display : grid;
+  gap : 0.5rem;
 }
 
 .shared-links{
@@ -64,59 +84,107 @@ body{
   padding-right : 1rem;
 }
 
-/*espace entre mes boutons de 32px soit 2rem soit un padding r et l de 1rem
-
-/*cours du prof*/
-@media screen and (min-width: 36em) {
-  .container {
-      max-width: 48rem;
-      padding-inline:auto;
-  }
-
+@media screen and (min-width: 48em) {
   .header .container{
-    background-color: blueviolet;
-    display : grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap : 1rem;
-    justify-content:space-between;
+    gap : 0.5rem;
+    justify-content: space-between;
   }
 
   .shared-links{
-    justify-content: right;
-  }
-}
-
-@media screen and (min-width: 67.5em){
-  .container {
-      max-width: 71.25rem; 
-      padding-inline:auto;
+    justify-content: end;
   }
 }
 
 /********* IDENTITY LAYOUT *********/
 
-.identity{
-  display: grid;
-}
-
 .main-img-container{
   order:-1;
+}
+
+@media screen and (min-width: 48em) {
+  .identity{
+    grid-template-columns: 1fr 1fr;
+    gap : 1rem;
+  }
+  .main-img-container{
+    order:0;
+  }
+}
+
+/********* SKILLS LAYOUT *********/
+
+@media screen and (min-width: 48em) {
+  .list-skills{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 62em) {
+  .list-skills{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /********* PROJECT LAYOUT *********/
 
 .secondary-title{
   display: flex;
+  justify-content: space-between;
 }
 
 .projet{
-  display:grid;
+  display: grid;
 }
 
-.container-img-projet{
+.container-img-projet {
   order:-1;
 }
 
 .list-style-projet, .view-links{
   display:flex;
 }
+
+@media screen and (min-width: 48em) {
+  .list-projects{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 62em) {
+  .list-projects{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap : 1rem;
+  }
+
+  .container-img-projet{
+    grid-area: "a" ;
+    background-color: yellow;
+  }
+  .view-links{
+    grid-area: "a" ;
+    background-color: yellow;
+  }
+  .name-project{
+    grid-area:"b";
+  }
+  .list-style-project{
+    grid-area: "b" ;
+  }
+
+  .projet{
+    grid-template-areas: "a"
+                         "b";
+  }
+  
+
+
+}
+
+/********* CONTACT LAYOUT *********/
+
