@@ -44,7 +44,7 @@ body{
 }
 
 /*************************LAYOUT*************************/
-
+/******Header******/
 .container{
   width : min(100%,90rem);
   margin-inline : auto;
@@ -52,9 +52,7 @@ body{
 }
 
 .header .container{
-  background-color: red;
   display : grid;
-  grid-gap : 1rem;
 }
 
 .shared-links{
@@ -69,7 +67,7 @@ body{
 /*espace entre mes boutons de 32px soit 2rem soit un padding r et l de 1rem
 
 /*cours du prof*/
-@media screen and (min-width: 36em) { /* eq 576px */
+@media screen and (min-width: 36em) {
   .container {
       max-width: 48rem;
       padding-inline:auto;
@@ -95,8 +93,30 @@ body{
   }
 }
 
-/************ IDENTITY LAYOUT *****************/
+/********* IDENTITY LAYOUT *********/
 
 .identity{
-  flex-direction: row-reverse;
+  display: grid;
+}
+
+.main-img-container{
+  order:-1;
+}
+
+/********* PROJECT LAYOUT *********/
+
+.secondary-title{
+  display: flex;
+}
+
+.projet{
+  display:grid;
+}
+
+.container-img-projet{
+  order:-1;
+}
+
+.list-style-projet, .view-links{
+  display:flex;
 }
