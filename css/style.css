@@ -44,8 +44,8 @@ body{
 
 /*************************LAYOUT*************************/
 
-/*Classical break-point : 0 > 576 > 768 > 992 > 1200 > 1400
-Convert to em             0 > 36  > 48  > 62  > 1200 > 87.5
+/*Classical break-point px : 0 > 576 > 768 > 992 > 1200 > 1400
+Convert to em              : 0 > 36  > 48  > 62  > 1200 > 87.5
 I define 2 break-points : Mobile > 48rem  > tablette 
                                  > 71rem  > Deskstop */                              
 
@@ -67,12 +67,13 @@ I define 2 break-points : Mobile > 48rem  > tablette
     max-width: 71 rem;
   }
 }
-
 /******Header******/
 
 .header .container{
   display : grid;
-  gap : 0.5rem;
+  gap : 1.25rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .shared-links{
@@ -81,7 +82,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 .socials img{
-  padding-right : 1rem;
+  padding-inline-end : 1rem;
 }
 
 @media screen and (min-width: 48em) {
@@ -90,6 +91,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
     grid-template-columns: 1fr 1fr;
     gap : 0.5rem;
     justify-content: space-between;
+    text-align: start;
   }
 
   .shared-links{
@@ -98,27 +100,43 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 /********* IDENTITY LAYOUT *********/
+.identity{
+  text-align: center;
+  display: grid;
+  gap :1.5rem;
+}
 
 .main-img-container{
   order:-1;
+  width:55%;                                /*100px de chaque coté de l'image pour une largeur à 174px --> 1-(174*374)=0.54*/
+  margin-inline: auto;
 }
 
 @media screen and (min-width: 48em) {
   .identity{
     grid-template-columns: 1fr 1fr;
-    gap : 1rem;
+    gap : 1rem  ;
+
   }
+
   .main-img-container{
     order:0;
+    width:100%;                             /*100px de chaque coté de l'image pour une largeur à 174px --> 1-(174*374)=0.54*/
+    margin-inline: 0;
+  }
+
+  .container-main-text{
+    text-align: start;
+    align-self: center;                    /*a  modif en fonction des polices*/
   }
 }
 
 /********* SKILLS LAYOUT *********/
-
 @media screen and (min-width: 48em) {
   .list-skills{
     display:grid;
     grid-template-columns: 1fr 1fr;
+    gap:1.5rem;
   }
 }
 
@@ -130,7 +148,6 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 /********* PROJECT LAYOUT *********/
-
 .secondary-title{
   display: flex;
   justify-content: space-between;
@@ -152,39 +169,38 @@ I define 2 break-points : Mobile > 48rem  > tablette
   .list-projects{
     display:grid;
     grid-template-columns: 1fr 1fr;
+    gap : 2.5rem;
   }
 }
 
 @media screen and (min-width: 62em) {
-  .list-projects{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap : 1rem;
-  }
-
   .container-img-projet{
-    grid-area: "a" ;
-    background-color: yellow;
+    grid-area: a ;
+    /*background-color: yellow;*/
   }
   .view-links{
-    grid-area: "a" ;
-    background-color: yellow;
+    grid-area: a ;
+    /*background-color: yellow;*/
   }
   .name-project{
-    grid-area:"b";
+    grid-area: b ;
   }
   .list-style-project{
-    grid-area: "b" ;
+    grid-area: b ;
   }
 
   .projet{
     grid-template-areas: "a"
                          "b";
   }
-  
-
-
 }
 
 /********* CONTACT LAYOUT *********/
+@media screen and (min-width: 48em) {
+  .contact .container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1rem;
+  }
+}
 
