@@ -230,5 +230,12 @@
             </ul>
         </div>
     </footer>
+
+    <!--ex: On souhaite que l'image soit lisible et adaptable à tous les utilisateurs.-->
+    <picture>
+        <source scrset="" type="image/avif">        <!--si l'image ne charge pas du avif (ex Edge) hop, je passe au suivant-->
+        <source scrset="" type="image/webp">        <!--idem ici et ainsi de suite-->
+        <img src="monimage.jpeg" alt=""> 
+    </picture>
 </body>
 </html>
