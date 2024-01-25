@@ -42,6 +42,12 @@ body{
   width : calc(100% - 1rem - 1rem);
   margin-inline : auto;
   padding-inline: auto ;
+  margin-block-end: 1.5rem;
+}
+
+main{
+  display: grid;
+  gap : 5rem;
 }
 
 .skill-title{
@@ -67,11 +73,12 @@ I define 2 break-points : Mobile > 48rem  > tablette
     max-width: 71rem;
   }
 }
-/******Header******/
+/******Similar rules on header + footer******/
 
-.header .container{
+.header .container,
+.footer .container{
   display : grid;
-  gap : 1.25rem;
+  gap : 1.25rem ;
   justify-content: center;
   text-align: center;
 }
@@ -86,24 +93,37 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 @media screen and (min-width: 48em) {
-  .header .container{
+  .header .container,
+  .footer .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap : 0.5rem;
-    justify-content: space-between;
+    justify-content: flex-start;
     text-align: start;
   }
 
   .shared-links{
-    justify-content: end;
+    justify-content: flex-end;
   }
 }
+
+/******Only header******/
+.header {
+  margin-block-start: clamp(1.25rem, 0.831rem + 1.788vw, 2.44rem);
+  margin-block-end: clamp(1.5rem, -2.613rem + 17.547vw, 5.81rem);
+}
+
+@media screen and (min-width: 61.99em) {
+    .header{
+      margin-block-end: 2.6em;
+    }
+  }
 
 /********* IDENTITY LAYOUT *********/
 .identity{
   text-align: center;
   display: grid;
-  gap :1.5rem;
+  gap :2.5rem;
 }
 
 .main-img-container{
@@ -207,4 +227,3 @@ I define 2 break-points : Mobile > 48rem  > tablette
 label{
   display: none;
 }
-
