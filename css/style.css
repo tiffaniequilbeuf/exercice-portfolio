@@ -127,9 +127,8 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 .main-img-container{
-  order:-1;
-  width:55%;                                /*100px de chaque coté de l'image pour une largeur à 174px --> 1-(174*374)=0.54*/
-  margin-inline: auto;
+  padding-inline-start: calc(1rem * 6.33 / 2 );
+  padding-inline-end: calc(1rem * 6.33 / 2 );
 }
 
 @media screen and (min-width: 48em) {
@@ -140,8 +139,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
   }
 
   .main-img-container{
-    order:0;
-    width:100%;                             /*100px de chaque coté de l'image pour une largeur à 174px --> 1-(174*374)=0.54*/
+    order:0;                          /*100px de chaque coté de l'image pour une largeur à 174px --> 1-(174*374)=0.54*/
     margin-inline: 0;
   }
 
