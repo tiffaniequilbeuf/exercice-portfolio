@@ -41,8 +41,7 @@ body{
 .container{
   width : calc(100% - 1rem - 1rem);
   margin-inline : auto;
-  padding-inline: auto ;
-  margin-block-end: 1.5rem;
+  padding-inline: auto;
 }
 
 main{
@@ -131,9 +130,12 @@ I define 2 break-points : Mobile > 48rem  > tablette
   display : flex;
   justify-content: center;
 
-  padding-inline-start: calc(1rem * 6.33 / 2 );
-  padding-inline-end: calc(1rem * 6.33 / 2 );
-  
+  padding-inline :calc(1rem * 6.33 / 2 ); 
+}
+
+.container-main-text{
+  display: grid;
+  gap: 1.5rem;
 }
 
 @media screen and (min-width: 48em) {
@@ -155,11 +157,24 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 /********* SKILLS LAYOUT *********/
+
+.skills .container{
+  border-block : .0625rem solid white;
+  padding-block: 2.5rem;
+  text-align: center;
+}
+
 @media screen and (min-width: 48em) {
   .list-skills{
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap:1.5rem;
+  }
+
+  .skills .container{
+    border-bottom : none;
+    padding-block: 4.5rem 2.5rem;
+    text-align: start;
   }
 }
 
@@ -174,12 +189,12 @@ I define 2 break-points : Mobile > 48rem  > tablette
 .secondary-title{
   display: flex;
   justify-content: space-between;
+  margin-block-end: 2.5rem;
 }
 
 .projet{
   display: grid;
 }
-
 
 .list-projects{
   display:grid;
@@ -236,6 +251,17 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 /********* CONTACT LAYOUT *********/
+.contact .container{
+  display:grid;
+  gap:2rem;
+}
+
+
+.contact-form{
+  padding-block-end: 2.44rem;
+  margin-block-end: 2.44rem;
+}
+
 @media screen and (min-width: 48em) {
   .contact .container{
     display:grid;
@@ -244,6 +270,30 @@ I define 2 break-points : Mobile > 48rem  > tablette
   }
 }
 
-label{
-  display: none;
+/********* FOOTER LAYOUT *********/
+
+footer{
+  border-block-start:.0625rem solid white;
+  padding-block-start: 2.44rem;
+  margin-block-end: 3.75rem ;
 }
+
+.twitter-b img:last-child {
+  padding-inline-end: 0;
+}
+
+
+@media screen and (min-width: 48em) {
+  footer{
+    margin-block: 1.87rem 2.5rem ;
+  }
+  
+}
+@media screen and (min-width: 62em) {
+  footer{
+    margin-block: 2.94rem 5.94rem ;
+  }
+}
+
+
+/********* TYPO *********/
