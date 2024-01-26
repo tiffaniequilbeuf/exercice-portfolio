@@ -10,7 +10,7 @@
  
   @font-face {
     font-display: swap; 
-    font-family: 'Space Grotesk';
+    font-family: 'Space Grotesk Bold';
     font-style: normal;
     font-weight: 700;
     src: url('../fonts/space-grotesk-v16-latin-700.woff2') format('woff2'); 
@@ -26,6 +26,7 @@
     --white: #FFF;
 
     --font: "Space Grotesk", sans-serif;
+    --font-bold: "Space Grotesk Bold", sans-serif;
 }
 
 body{
@@ -52,6 +53,53 @@ main{
 .skill-title{
   display:none;
 }
+
+/**************************TYPO**************************/
+
+:is(h1, h2, h3, h4, .h1, .h2, .h3, .h4, ) {
+  font-family: var(--font-bold);  
+  font-weight: 700;
+}
+
+:is(h1, .h1){
+  font-size: clamp(2.5rem, 1.444rem + 4.507vw, 5.5rem) ;
+  line-height: clamp(2.5rem, 1.444rem + 4.507vw, 5.5rem) ; 
+  letter-spacing: clamp(-0.156rem, -0.186rem + 0.129vw, -0.071rem);
+}
+
+.h2{
+  font-size: clamp(2rem, 1.648rem + 1.502vw, 3rem);                   /*de 2rem à 3 rem*/
+  line-height: clamp(2.5rem, 2.148rem + 1.502vw, 3.5rem);             /* de 2.5rem à 3.5rem*/
+  letter-spacing: clamp(-0.094rem, -0.105rem + 0.047vw, -0.063rem);   
+}
+
+h3{
+  font-size: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);
+  line-height: 2rem;
+  letter-spacing: clamp(-0.028rem, -0.045rem + 0.073vw, 0.021rem);
+}
+
+.list-style-projet,
+p {
+  font-size: clamp(1rem, 0.956rem + 0.188vw, 1.125rem);
+  line-height: clamp(1.625rem, 1.581rem + 0.188vw, 1.75rem);
+}
+
+p{
+  margin-block-end: 1.625rem;
+}
+
+.name-site{
+  font-size:clamp(1.5rem, 1.324rem + 0.751vw, 2rem);
+  line-height: 2rem;
+  letter-spacing: clamp(0.028rem, 0.03rem + -0.01vw, 0.021rem);
+}
+
+
+/**************************COMPONENT**************************/
+
+
+
 
 /*************************LAYOUT*************************/
 
@@ -142,7 +190,6 @@ I define 2 break-points : Mobile > 48rem  > tablette
   .identity{
     grid-template-columns: 1fr 1fr;
     gap : 1rem  ;
-
   }
 
   .main-img-container{
@@ -194,6 +241,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
 
 .projet{
   display: grid;
+  gap:clamp(0.4rem, 0.502rem + -0.436vw, 0.11rem);
 }
 
 .list-projects{
@@ -272,7 +320,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
 
 /********* FOOTER LAYOUT *********/
 
-footer{
+footer .container{
   border-block-start:.0625rem solid white;
   padding-block-start: 2.44rem;
   margin-block-end: 3.75rem ;
@@ -296,4 +344,3 @@ footer{
 }
 
 
-/********* TYPO *********/
