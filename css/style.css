@@ -115,10 +115,11 @@ p{
 
 .skip-link a{
   display: inline-block;
-  background-color: var(--white);
-  color:var(--dark-grey);
+  background-color: var(--black);
+  color:var(--white);
   font-size: 1.5rem;
   padding: 1.25rem;
+  border-radius: 8px;
 
   position :absolute;
   top : -100vh; 
@@ -131,11 +132,11 @@ p{
 
 /**********Button***************/
 
-button.button {
+button {
   text-decoration: underline;
 }
 
-.button, .button > li > a, button.button {
+:is(.button, .button > li > a) {
   text-transform: uppercase;
   line-height: 1.625em; 
   letter-spacing: 0.14288rem;
@@ -148,8 +149,14 @@ button.button {
   display: flex;
 }
 
-:is(.button, .button > li > a, button.button):hover,
-:is(.button, .button > li > a, button.button):focus{
+:is(.button, .button > li > a):focus{
+  background-color: var(--black);
+  outline-offset: var(--black);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+:is(.button, .button > li > a):hover{
   color : var(--green);
   transition: .3s;
 }
@@ -370,13 +377,24 @@ I define 2 break-points : Mobile > 37rem  > tablette
   .list-style-project{
     grid-area: b ;
   }
+  
+  .container-img-projet:hover{
+    opacity: 0.75;
+    transition: .3s;
+  }
 
     /* tips du prof : grid en 1/1/2/2 
   avec une opacité qui passe de 0 à 1 pour éviter display none
   j'ai pas compris... J'ai tenté sur l'image sans succès et son container
   mais l'opacité s'ajoute aussi sur mes deux liens
-  
+
   */
+  img:where(a){
+    padding : 50px ; 
+    background-color: orangered;
+  }
+
+
 }
 
 /********* CONTACT LAYOUT *********/
