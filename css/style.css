@@ -98,21 +98,58 @@ p{
 
 /**************************COMPONENT**************************/
 
-.button {
+/**********focus-visible***************/
+
+:focus-visible, .shared-links:focus{
+  outline: .3rem solid var(--green);
+}
+
+/*attention, ne passe pas sur les socials medias... pourquoi ? 
+
+/**********Skip Link***************/
+
+.skip-link a{
+  display: inline-block;
+  background-color: var(--white);
+  color:var(--dark-grey);
+  font-size: 1.5rem;
+  padding: 1.25rem;
+
+  position :absolute;
+  top : -100vh; 
+  left : 40%;
+}
+
+.skip-link a:focus{
+  top:0;
+}
+
+/**********Button***************/
+
+button.button {
+  text-decoration: underline;
+}
+
+.button, .button > li > a, button.button {
   text-transform: uppercase;
   line-height: 1.625em; /* 162.5% */
   letter-spacing: 0.14288rem;
   background-color: inherit;
   align-self:center;
   border: none;
-  /*margin: calc( 1rem * ( 2.75 - 1.625 ) / 2 );*/
+  color : var(--white);
+  text-underline-offset: 10px;
+  text-decoration-color: var(--green) ;
+  display: flex;
+  padding: 1rem;
+  align-self:center;
+  justify-self: start;
 }
 
-.button > li > a, a.button, button.button {
-  border-block-end: 2px solid var(--green);
-  color: var(--white);
-  text-decoration: none; 
-} /*some test, but a.button not ok*/
+/*ask benoit best practice : class on all a or on ul/li ? 
+Why button is'nt ok with only class ? 
+*/
+
 
 /*************************LAYOUT*************************/
 
