@@ -54,6 +54,11 @@ main{
   display:none;
 }
 
+img{
+  object-fit:cover;
+}
+
+
 /**************************TYPO**************************/
 
 :is(h1, h2, h3, h4, .h1, .h2, .h3, .h4, ) {
@@ -132,7 +137,7 @@ button.button {
 
 .button, .button > li > a, button.button {
   text-transform: uppercase;
-  line-height: 1.625em; /* 162.5% */
+  line-height: 1.625em; 
   letter-spacing: 0.14288rem;
   background-color: inherit;
   align-self:center;
@@ -141,25 +146,29 @@ button.button {
   text-underline-offset: 10px;
   text-decoration-color: var(--green) ;
   display: flex;
-  padding: 1rem;
-  align-self:center;
-  justify-self: start;
+}
+
+:is(.button, .button > li > a, button.button):hover,
+:is(.button, .button > li > a, button.button):focus{
+  color : var(--green);
+  transition: .3s;
 }
 
 /*ask benoit best practice : class on all a or on ul/li ? 
 Why button is'nt ok with only class ? 
+Why zero focus on my shared lins even if I change place of id ? 
 */
 
-
+ 
 /*************************LAYOUT*************************/
 
 /*Classical break-point px : 0 > 576 > 768 > 992 > 1200 > 1400
 Convert to em              : 0 > 36  > 48  > 62  > 1200 > 87.5
-I define 2 break-points : Mobile > 48rem  > tablette 
+I define 2 break-points : Mobile > 37rem  > tablette 
                                  > 71rem  > Deskstop */                              
 
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 36em) {
   .container {
     max-width: 48rem;
   }
@@ -189,7 +198,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
   padding-inline-end : 1rem;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 36em) {
   .header .container,
   .footer .container{
     display: grid;
@@ -225,10 +234,9 @@ I define 2 break-points : Mobile > 48rem  > tablette
 
 .main-img-container{
   order : -1;
+  margin-inline : 3.1rem; 
   display : flex;
   justify-content: center;
-
-  padding-inline :calc(1rem * 6.33 / 2 ); 
 }
 
 .container-main-text{
@@ -236,7 +244,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
   gap: 1.5rem;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 36em) {
   .identity{
     grid-template-columns: 1fr 1fr;
     gap : 1rem  ;
@@ -261,7 +269,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
   text-align: center;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 36em) {
   .list-skills{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -303,7 +311,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 .container-img-projet {
-  order:-1;
+  order:-100;
 }
 
 .list-style-projet, .view-links{ 
@@ -319,7 +327,7 @@ I define 2 break-points : Mobile > 48rem  > tablette
 }
 
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 36em) {
   .list-projects{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -327,7 +335,8 @@ I define 2 break-points : Mobile > 48rem  > tablette
   }
 }
 
-@media screen and (min-width: 55em) {
+
+@media screen and (min-width: 61.98em) {
   
   .list-projects{
     display:grid;
@@ -338,14 +347,23 @@ I define 2 break-points : Mobile > 48rem  > tablette
 
 @media screen and (min-width: 61.99em) {
 
+  .projet{
+    grid-template-areas: "a"
+                         "b";
+  }
+
   .container-img-projet{
     grid-area: a ;
-    /*background-color: yellow;*/
-  }
+    order : -500; 
+  } 
+
   .view-links{
     grid-area: a ;
-    /*background-color: yellow;*/
+    order : 501; 
+    flex-direction: column;
+    align-items: center;
   }
+
   .name-project{
     grid-area: b ;
   }
@@ -353,11 +371,12 @@ I define 2 break-points : Mobile > 48rem  > tablette
     grid-area: b ;
   }
 
-  .projet{
-    grid-template-areas: "a"
-                         "b";
-  }
-
+    /* tips du prof : grid en 1/1/2/2 
+  avec une opacité qui passe de 0 à 1 pour éviter display none
+  j'ai pas compris... J'ai tenté sur l'image sans succès et son container
+  mais l'opacité s'ajoute aussi sur mes deux liens
+  
+  */
 }
 
 /********* CONTACT LAYOUT *********/
@@ -366,13 +385,12 @@ I define 2 break-points : Mobile > 48rem  > tablette
   gap:2rem;
 }
 
-
 .contact-form{
   padding-block-end: 2.44rem;
   margin-block-end: 2.44rem;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 36em) {
   .contact .container{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -393,7 +411,7 @@ footer .container{
 }
 
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 36em) {
   footer{
     margin-block: 1.87rem 2.5rem ;
   }
@@ -405,4 +423,12 @@ footer .container{
   }
 }
 
+
+
+/****************DECORATION *******************/
+span{
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--green);
+}
 
