@@ -132,41 +132,40 @@ p{
 
 /**********Button***************/
 
-button {
-  text-decoration: underline;
-}
-
-:is(.button, .button > li > a) {
+.button {
+  display: inline-flex;
   text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: var(--green);
+
+  color : var(--white);
+  background-color: inherit;
+
+  border : 0;
+
   line-height: 1.625em; 
   letter-spacing: 0.14288rem;
-  background-color: inherit;
-  align-self:center;
-  border: none;
-  color : var(--white);
-  text-underline-offset: 10px;
-  text-decoration-color: var(--green) ;
-  display: flex;
+  align-items: center;
+
 }
 
-:is(.button, .button > li > a):focus{
+.button:hover {
+  color : var(--green);
+  transition: .3s;
+}
+
+.button:focus {
   background-color: var(--black);
   outline-offset: var(--black);
   padding: 1rem;
   border-radius: 8px;
 }
 
-:is(.button, .button > li > a):hover{
-  color : var(--green);
-  transition: .3s;
+svg {
+  fill:var(--green);
 }
 
-/*ask benoit best practice : class on all a or on ul/li ? 
-Why button is'nt ok with only class ? 
-Why zero focus on my shared lins even if I change place of id ? 
-*/
-
- 
 /*************************LAYOUT*************************/
 
 /*Classical break-point px : 0 > 576 > 768 > 992 > 1200 > 1400
@@ -444,4 +443,3 @@ span{
   text-decoration-color: var(--green);
 }
 
-/****************notes cours *******************/
