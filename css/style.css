@@ -389,12 +389,6 @@ I define 2 break-points : Mobile > 37rem  > tablette
   mais l'opacité s'ajoute aussi sur mes deux liens
 
   */
-  img:where(a){
-    padding : 50px ; 
-    background-color: orangered;
-  }
-
-
 }
 
 /********* CONTACT LAYOUT *********/
@@ -450,3 +444,4 @@ span{
   text-decoration-color: var(--green);
 }
 
+/****************notes cours *******************/
