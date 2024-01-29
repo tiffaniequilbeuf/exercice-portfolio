@@ -105,7 +105,7 @@ p{
 
 /**********focus-visible***************/
 
-:focus-visible, .shared-links:focus{
+:focus-visible, .shared-links:focus, .view-links:focus{
   outline: .3rem solid var(--green);
 }
 
@@ -128,12 +128,15 @@ p{
 /**********Button***************/
 
 .button{
+  position: relative;
   display: inline-flex;
   text-transform: uppercase;
-  text-decoration: underline;
+  text-decoration: none;
   flex-wrap: wrap;
-  /*text-underline-offset: 10px;
-  text-decoration-color: var(--green);*/
+  /*
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: var(--green);*/
 
   color : var(--white);
   background-color: transparent;
@@ -145,32 +148,60 @@ p{
   align-items: center;
 }
 
-.button::before{
+/*.button::before{
+  position:absolute;
   content:"";
-  width : 100%;
-
-
+  inset-block-start: 0;
+  inset-inline: 0;
+  inset-block-end: 6rem;
+  background-color: #4EE1A0;
+  transition: .3s;
 }
+
+.button::before:hover{
+  transform: translateY(0rem);
+}*/
 
 .button:hover {
   color : var(--green);
   transition: .3s;
 }
 
-.button:focus-within {
-  /*background-color: var(--black);
-  outline-offset: var(--black);*/
+.button:focus, svg:focus {
   padding: 1rem;
   border-radius: 8px;
 }
 
+.test{
+  background-color: red;
+  font-size: 40px;
+  line-height: 40px;
+  padding: 20px;
+}
 
-/**********for socials media in svg***************/
+.loader{
+  margin-block: auto;
+  width: 50px;
+  height : 50px;
+  border-radius : 50%; 
+}
 
+/**************** SVG *******************/
 
-.socials :hover{  
-  fill:var(--green);
-  transition: .3s;
+svg{
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(139deg) brightness(102%) contrast(103%);
+  scale: 1.25;
+  transition : .3s;
+}
+
+svg:hover{
+  filter: invert(63%) sepia(88%) saturate(272%) hue-rotate(101deg) brightness(100%) contrast(96%);
+  transition : .3s;
+}
+
+svg:focus{
+  filter: invert(63%) sepia(88%) saturate(272%) hue-rotate(101deg) brightness(100%) contrast(96%);
+  transition : .3s;
 }
 
 /*************************LAYOUT*************************/
@@ -204,11 +235,8 @@ I define 2 break-points : Mobile > 37rem  > tablette
 
 .shared-links{
   display : flex;
+  gap : 1rem;
   flex-direction: row;
-}
-
-.socials img{
-  padding-inline-end : 1rem;
 }
 
 @media screen and (min-width: 36em) {
@@ -223,6 +251,7 @@ I define 2 break-points : Mobile > 37rem  > tablette
 
   .shared-links{
     justify-content: flex-end;
+    gap : 2rem;
   }
 }
 
@@ -231,6 +260,7 @@ I define 2 break-points : Mobile > 37rem  > tablette
   margin-block-start: clamp(1.25rem, 0.831rem + 1.788vw, 2.44rem);
   margin-block-end: clamp(1.5rem, -2.613rem + 17.547vw, 5.81rem);
 }
+
 
 @media screen and (min-width: 61.99em) {
     .header{
@@ -246,9 +276,9 @@ I define 2 break-points : Mobile > 37rem  > tablette
 }
 
 .main-img-container{
-  order : -1;
-  margin-inline : 3.1rem; 
   display : flex;
+  order: -1;
+  padding-inline-start: 0.5rem ;
   justify-content: center;
 }
 
@@ -257,21 +287,39 @@ I define 2 break-points : Mobile > 37rem  > tablette
   gap: 1.5rem;
 }
 
+.container-main-text > .contact-me{
+  display: inline-block;
+  justify-self: center;
+  padding: 0.5rem;
+}
+
+
 @media screen and (min-width: 36em) {
   .identity{
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap : 1rem  ;
   }
 
   .main-img-container{
     order:0;                          /*100px de chaque coté de l'image pour une largeur à 174px --> 1-(174*374)=0.54*/
-    margin-inline: 0;
+  }
+
+  .main-img-container img{
+    justify-content: flex-end;
   }
 
   .container-main-text{
     text-align: start;
     align-self: center;                    /*a  modif en fonction des polices*/
   }
+
+  .container-main-text > .contact-me{
+    display: inline-block;
+    justify-self: start;
+    padding: 0.5rem;
+  }
+  
+
 }
 
 /********* SKILLS LAYOUT *********/
