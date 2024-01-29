@@ -115,38 +115,40 @@ p{
 
 .skip-link a{
   display: inline-block;
-  background-color: var(--black);
-  color:var(--white);
-  font-size: 1.5rem;
-  padding: 1.25rem;
   border-radius: 8px;
-
   position :absolute;
   top : -100vh; 
   left : 40%;
 }
 
-.skip-link a:focus{
+.skip-link a:focus-within{
   top:0;
 }
 
 /**********Button***************/
 
-.button {
+.button{
   display: inline-flex;
   text-transform: uppercase;
   text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-color: var(--green);
+  flex-wrap: wrap;
+  /*text-underline-offset: 10px;
+  text-decoration-color: var(--green);*/
 
   color : var(--white);
-  background-color: inherit;
+  background-color: transparent;
 
   border : 0;
 
   line-height: 1.625em; 
   letter-spacing: 0.14288rem;
   align-items: center;
+}
+
+.button::before{
+  content:"";
+  width : 100%;
+
 
 }
 
@@ -155,15 +157,20 @@ p{
   transition: .3s;
 }
 
-.button:focus {
-  background-color: var(--black);
-  outline-offset: var(--black);
+.button:focus-within {
+  /*background-color: var(--black);
+  outline-offset: var(--black);*/
   padding: 1rem;
   border-radius: 8px;
 }
 
-svg {
+
+/**********for socials media in svg***************/
+
+
+.socials :hover{  
   fill:var(--green);
+  transition: .3s;
 }
 
 /*************************LAYOUT*************************/
@@ -360,14 +367,22 @@ I define 2 break-points : Mobile > 37rem  > tablette
 
   .container-img-projet{
     grid-area: a ;
-    order : -500; 
   } 
 
   .view-links{
     grid-area: a ;
-    order : 501; 
-    flex-direction: column;
+    z-index: 50;
+    background-color: rgb(0, 0, 0, .75);
     align-items: center;
+    display : inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: .3s ease-in-out;
+  }
+
+  .view-links:hover{
+    opacity : 1;
   }
 
   .name-project{
