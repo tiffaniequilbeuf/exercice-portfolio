@@ -172,20 +172,6 @@ p{
   border-radius: 8px;
 }
 
-.test{
-  background-color: red;
-  font-size: 40px;
-  line-height: 40px;
-  padding: 20px;
-}
-
-.loader{
-  margin-block: auto;
-  width: 50px;
-  height : 50px;
-  border-radius : 50%; 
-}
-
 /**************** SVG *******************/
 
 svg{
@@ -506,3 +492,87 @@ span{
   text-decoration-color: var(--green);
 }
 
+
+.snow{
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.layer{
+  position:absolute;
+  left: -100px;
+  right: -100px;
+  animation: wind 5s linear cubic-bezier(0.42, 0, 0.54, 0.94) alternate infinite;
+  perspective: 100px;
+
+}
+
+.layer::after{
+  content: "";
+  position:absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1000px;
+  background: url(../img/snow-xs.png);
+  animation: fall-light 10s linear infinite; 
+  transform:translateZ(50px);
+}
+
+.layer:nth-child(1){
+  animation-duration : 30s;
+
+}
+
+.layer:nth-child(1)::after{
+  background: url(../img/snow-reverse.png);
+  transform: translateZ(25px);
+  animation-name : fall-blur;
+}
+
+@keyframes fall{
+  0% {
+    transform: translateY(-500px);
+  }
+}
+
+@keyframes fall-light{
+  from {
+    transform: translateY(-500px) translateZ(50px);
+  }
+}
+
+@keyframes fall-blur{
+  from {
+    transform: translateY(-500px) translateZ(25px);
+  }
+}
+
+
+
+@keyframes wind{
+  to {
+    transform: translateX(50px);
+  }
+}
+
+
+
+/*.test{
+  background-color: red;
+  font-size: 40px;
+  line-height: 40px;
+  padding: 20px;
+}
+
+.loader{
+  margin-block: auto;
+  width: 50px;
+  height : 50px;
+  border-radius : 50%; 
+}*/
