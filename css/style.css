@@ -470,6 +470,10 @@ footer .container{
   padding-inline-end: 0;
 }
 
+.form div{
+  display : grid;
+}
+
 
 @media screen and (min-width: 36em) {
   footer{
@@ -501,6 +505,7 @@ span{
   right: 0;
   bottom: 0;
   overflow: hidden;
+  z-index:-10000;
 }
 
 .layer{
@@ -562,7 +567,7 @@ span{
 }
 
 
-
+/***************CUSTOM CONTACT **********/
 /*.test{
   background-color: red;
   font-size: 40px;
@@ -576,3 +581,37 @@ span{
   height : 50px;
   border-radius : 50%; 
 }*/
+
+footer,.contact{
+  background-color: var(--dark-grey);
+  padding-block-start:5rem;
+  margin-block-end: -5rem ;
+}
+
+footer{
+  padding-block-end: 5em ;
+}
+
+label{
+  padding-inline-start:.5rem;
+}
+
+
+input, textarea{
+  margin:.5rem;
+  margin-block-end: 2.5rem;
+  background-color:var(--dark-grey);
+  max-width:100%; 
+  border: none ;
+ /* outline-offset: 1 solid white;*/
+ border-bottom: 1px solid #fff ;
+  padding: 0.5rem;
+}
+
+input:valid, textarea:valid{
+  color: var(--white);
+}
+
+textarea{
+  resize: vertical;
+}
